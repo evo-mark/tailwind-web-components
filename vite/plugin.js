@@ -64,7 +64,7 @@ function resolveStylesheetPath(path, root) {
   return path.startsWith("/") ? path : join(root, path);
 }
 
-const moduleId = "tailwind-web-components";
+const moduleId = "virtual:tailwind-web-components";
 const resolvedModuleId = "\0" + moduleId;
 
 /**
@@ -167,7 +167,7 @@ export function tailwindWebComponents(pluginConfig) {
       },
     },
     vue({
-      customElement: "*.ce.vue",
+      customElement: true,
       ...vueConfig,
     }),
   ];

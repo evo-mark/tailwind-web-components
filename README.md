@@ -70,6 +70,20 @@ globalThis.customElements.define("twc-another-component", AsyncComponent);
 
 Note that we're importing `defineCustomElement` from a virtual namespace and **not** the version from "vue".
 
+## Props
+
+In your `vite.config.js` file, you can pass the following props to the Vite plugin
+
+| Prop              | Type    | Default    | Description                                              |
+| ----------------- | ------- | ---------- | -------------------------------------------------------- |
+| config            | object  |            | The single-object config                                 |
+| config.stylesheet | string  | <required> | The path (relative to vite.config.js) of your stylesheet |
+| config.vueConfig  | object  | {}         | Config options to pass to the @vitejs-plugin-vue plugin  |
+| config.sourceMap  | boolean | false      | Generate inline source-maps for the stylesheet?          |
+| config.injectCss  | boolean | true       | Inject the CSS into the document.head using JS           |
+| config.minify     | boolean | true       | Minify the CSS output when in production mode            |
+
 ### Caveats
 
-Not tested with SSR yet.
+- Not tested with SSR yet.
+- If you choose not to inject CSS into the document head, it will be duplicated in your JS file.
